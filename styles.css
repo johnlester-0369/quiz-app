@@ -1,0 +1,655 @@
+/* ==================== DESIGN TOKENS ==================== */
+:root {
+  --light-color-primary: 68 114 210;
+  --light-color-on-primary: 255 255 255;
+  --light-color-primary-container: 221 232 254;
+  --light-color-on-primary-container: 26 48 95;
+  --light-color-secondary: 126 93 209;
+  --light-color-on-secondary: 255 255 255;
+  --light-color-secondary-container: 232 228 254;
+  --light-color-on-secondary-container: 54 38 94;
+  --light-color-tertiary: 168 72 181;
+  --light-color-on-tertiary: 255 255 255;
+  --light-color-tertiary-container: 247 222 250;
+  --light-color-on-tertiary-container: 75 28 81;
+  --light-color-surface: 255 255 255;
+  --light-color-on-surface: 0 0 0;
+  --light-color-surface-variant: 202 213 226;
+  --light-color-on-surface-variant: 50 65 87;
+  --light-color-surface-container-lowest: 255 255 255;
+  --light-color-surface-container-low: 248 250 252;
+  --light-color-surface-container: 241 245 249;
+  --light-color-surface-container-high: 227 233 241;
+  --light-color-surface-container-highest: 212 221 232;
+  --light-color-surface-bright: 255 255 255;
+  --light-color-surface-dim: 144 161 185;
+  --light-color-inverse-surface: 29 41 58;
+  --light-color-inverse-on-surface: 248 250 252;
+  --light-color-inverse-primary: 196 216 253;
+  --light-color-outline: 98 116 142;
+  --light-color-outline-variant: 144 161 185;
+  --light-color-scrim: 0 0 0;
+  --light-color-shadow: 0 0 0;
+  --light-color-error: 231 0 11;
+  --light-color-on-error: 254 242 242;
+  --light-color-error-container: 255 226 226;
+  --light-color-on-error-container: 130 24 26;
+  --light-color-success: 0 130 54;
+  --light-color-on-success: 240 253 244;
+  --light-color-success-container: 220 252 231;
+  --light-color-on-success-container: 13 84 43;
+  --light-color-warning: 225 113 0;
+  --light-color-on-warning: 255 251 235;
+  --light-color-warning-container: 254 243 198;
+  --light-color-on-warning-container: 123 51 6;
+  --light-color-info: 0 132 209;
+  --light-color-on-info: 240 249 255;
+  --light-color-info-container: 223 242 254;
+  --light-color-on-info-container: 2 74 112;
+  --light-color-gradient-primary: linear-gradient(135deg, rgb(53,109,232) 0%, rgb(23,129,175) 100%);
+  --light-color-gradient-secondary: linear-gradient(135deg, rgb(128,87,221) 0%, rgb(55,109,232) 100%);
+  --light-color-gradient-tertiary: linear-gradient(135deg, rgb(170,68,184) 0%, rgb(127,88,222) 100%);
+  --light-color-gradient-error: linear-gradient(135deg, rgb(210,53,43) 0%, rgb(174,97,20) 100%);
+  --light-color-gradient-success: linear-gradient(135deg, rgb(24,143,58) 0%, rgb(25,138,119) 100%);
+  --light-color-gradient-warning: linear-gradient(135deg, rgb(179,92,19) 0%, rgb(150,113,20) 100%);
+  --light-color-gradient-info: linear-gradient(135deg, rgb(23,125,194) 0%, rgb(24,133,154) 100%);
+
+  --color-primary: var(--light-color-primary);
+  --color-on-primary: var(--light-color-on-primary);
+  --color-primary-container: var(--light-color-primary-container);
+  --color-on-primary-container: var(--light-color-on-primary-container);
+  --color-secondary: var(--light-color-secondary);
+  --color-on-secondary: var(--light-color-on-secondary);
+  --color-secondary-container: var(--light-color-secondary-container);
+  --color-on-secondary-container: var(--light-color-on-secondary-container);
+  --color-tertiary: var(--light-color-tertiary);
+  --color-on-tertiary: var(--light-color-on-tertiary);
+  --color-tertiary-container: var(--light-color-tertiary-container);
+  --color-on-tertiary-container: var(--light-color-on-tertiary-container);
+  --color-surface: var(--light-color-surface);
+  --color-on-surface: var(--light-color-on-surface);
+  --color-surface-variant: var(--light-color-surface-variant);
+  --color-on-surface-variant: var(--light-color-on-surface-variant);
+  --color-surface-container-lowest: var(--light-color-surface-container-lowest);
+  --color-surface-container-low: var(--light-color-surface-container-low);
+  --color-surface-container: var(--light-color-surface-container);
+  --color-surface-container-high: var(--light-color-surface-container-high);
+  --color-surface-container-highest: var(--light-color-surface-container-highest);
+  --color-surface-bright: var(--light-color-surface-bright);
+  --color-surface-dim: var(--light-color-surface-dim);
+  --color-inverse-surface: var(--light-color-inverse-surface);
+  --color-inverse-on-surface: var(--light-color-inverse-on-surface);
+  --color-inverse-primary: var(--light-color-inverse-primary);
+  --color-outline: var(--light-color-outline);
+  --color-outline-variant: var(--light-color-outline-variant);
+  --color-scrim: var(--light-color-scrim);
+  --color-shadow: var(--light-color-shadow);
+  --color-error: var(--light-color-error);
+  --color-on-error: var(--light-color-on-error);
+  --color-error-container: var(--light-color-error-container);
+  --color-on-error-container: var(--light-color-on-error-container);
+  --color-success: var(--light-color-success);
+  --color-on-success: var(--light-color-on-success);
+  --color-success-container: var(--light-color-success-container);
+  --color-on-success-container: var(--light-color-on-success-container);
+  --color-warning: var(--light-color-warning);
+  --color-on-warning: var(--light-color-on-warning);
+  --color-warning-container: var(--light-color-warning-container);
+  --color-on-warning-container: var(--light-color-on-warning-container);
+  --color-info: var(--light-color-info);
+  --color-on-info: var(--light-color-on-info);
+  --color-info-container: var(--light-color-info-container);
+  --color-on-info-container: var(--light-color-on-info-container);
+  --color-gradient-primary: var(--light-color-gradient-primary);
+  --color-gradient-secondary: var(--light-color-gradient-secondary);
+  --color-gradient-tertiary: var(--light-color-gradient-tertiary);
+  --color-gradient-error: var(--light-color-gradient-error);
+  --color-gradient-success: var(--light-color-gradient-success);
+  --color-gradient-warning: var(--light-color-gradient-warning);
+  --color-gradient-info: var(--light-color-gradient-info);
+}
+
+/* ==================== RESET & BASE ==================== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background-color: rgb(var(--color-surface-container-low));
+  color: rgb(var(--color-on-surface));
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 16px;
+}
+
+/* ==================== LAYOUT ==================== */
+.quiz-wrapper {
+  width: 100%;
+  max-width: 600px;
+}
+
+/* ==================== CATEGORY SCREEN ==================== */
+.category-header {
+  margin-bottom: 28px;
+  animation: fadeSlideDown 0.4s ease both;
+}
+
+.category-title {
+  font-size: 26px;
+  font-weight: 600;
+  color: rgb(var(--color-on-surface));
+  letter-spacing: -0.4px;
+}
+
+.category-subtitle {
+  font-size: 14px;
+  font-weight: 400;
+  color: rgb(var(--color-on-surface-variant));
+  margin-top: 4px;
+}
+
+.category-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+/* Each category card staggered in to create a cascade reveal */
+.category-card {
+  background-color: rgb(var(--color-surface));
+  border-radius: 18px;
+  padding: 22px 20px;
+  cursor: pointer;
+  border: 1.5px solid rgb(var(--color-surface-container-high));
+  box-shadow:
+    0 1px 3px rgba(var(--color-shadow), 0.06),
+    0 4px 12px rgba(var(--color-shadow), 0.05);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+  text-align: left;
+  font-family: 'DM Sans', sans-serif;
+  opacity: 0;
+  animation: fadeSlideUp 0.4s ease forwards;
+}
+
+.category-card:nth-child(1) { animation-delay: 0.05s; }
+.category-card:nth-child(2) { animation-delay: 0.12s; }
+.category-card:nth-child(3) { animation-delay: 0.19s; }
+.category-card:nth-child(4) { animation-delay: 0.26s; }
+
+.category-card:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    0 4px 12px rgba(var(--color-shadow), 0.10),
+    0 8px 28px rgba(var(--color-shadow), 0.08);
+  border-color: rgb(var(--color-outline-variant));
+}
+
+.category-card:active {
+  transform: translateY(-1px) scale(0.99);
+}
+
+.category-icon-wrap {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  margin-bottom: 14px;
+  /* background set inline per card via data-gradient */
+}
+
+.category-card-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: rgb(var(--color-on-surface));
+  letter-spacing: -0.1px;
+  margin-bottom: 4px;
+}
+
+.category-card-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.category-count {
+  font-size: 12px;
+  font-weight: 400;
+  color: rgb(var(--color-on-surface-variant));
+}
+
+.category-difficulty {
+  font-size: 11px;
+  font-weight: 500;
+  padding: 2px 8px;
+  border-radius: 99px;
+}
+
+.difficulty-beginner {
+  background-color: rgb(var(--color-success-container));
+  color: rgb(var(--color-on-success-container));
+}
+
+.difficulty-intermediate {
+  background-color: rgb(var(--color-warning-container));
+  color: rgb(var(--color-on-warning-container));
+}
+
+/* ==================== HEADER ==================== */
+.quiz-header {
+  margin-bottom: 24px;
+  animation: fadeSlideDown 0.4s ease both;
+}
+
+.quiz-header-inner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.back-btn {
+  flex-shrink: 0;
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background-color: rgb(var(--color-surface-container));
+  border: 1.5px solid rgb(var(--color-surface-container-high));
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb(var(--color-on-surface-variant));
+  transition: background-color 0.15s ease;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.back-btn:hover {
+  background-color: rgb(var(--color-surface-container-high));
+}
+
+.quiz-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: rgb(var(--color-on-surface));
+  letter-spacing: -0.3px;
+}
+
+.quiz-subtitle {
+  font-size: 13px;
+  font-weight: 400;
+  color: rgb(var(--color-on-surface-variant));
+  margin-top: 2px;
+  margin-left: 44px; /* aligns under title, past the back button */
+}
+
+/* ==================== PROGRESS ==================== */
+.progress-bar-track {
+  height: 6px;
+  background-color: rgb(var(--color-surface-container-high));
+  border-radius: 99px;
+  margin-bottom: 24px;
+  overflow: hidden;
+  animation: fadeSlideDown 0.4s 0.05s ease both;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  border-radius: 99px;
+  transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  /* gradient injected via JS to match the active quiz group's color */
+}
+
+/* ==================== QUESTION CARD ==================== */
+.question-card {
+  background-color: rgb(var(--color-surface));
+  border-radius: 20px;
+  padding: 28px;
+  box-shadow:
+    0 1px 3px rgba(var(--color-shadow), 0.08),
+    0 4px 16px rgba(var(--color-shadow), 0.06);
+  animation: fadeSlideDown 0.4s 0.1s ease both;
+}
+
+.question-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.question-badge {
+  font-size: 12px;
+  font-weight: 500;
+  color: rgb(var(--color-on-primary-container));
+  background-color: rgb(var(--color-primary-container));
+  padding: 4px 10px;
+  border-radius: 99px;
+  letter-spacing: 0.2px;
+}
+
+.question-counter {
+  font-size: 13px;
+  font-weight: 400;
+  color: rgb(var(--color-on-surface-variant));
+}
+
+.question-text {
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 1.55;
+  color: rgb(var(--color-on-surface));
+  margin-bottom: 24px;
+  letter-spacing: -0.1px;
+}
+
+/* ==================== CHOICES ==================== */
+.choices-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  list-style: none;
+}
+
+.choice-btn {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  padding: 14px 16px;
+  background-color: rgb(var(--color-surface-container-low));
+  border: 1.5px solid rgb(var(--color-outline-variant));
+  border-radius: 12px;
+  cursor: pointer;
+  text-align: left;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: rgb(var(--color-on-surface));
+  transition: background-color 0.15s ease, border-color 0.15s ease, transform 0.1s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.choice-btn:hover:not(:disabled) {
+  background-color: rgb(var(--color-surface-container));
+  border-color: rgb(var(--color-outline));
+}
+
+.choice-btn:active:not(:disabled) { transform: scale(0.99); }
+.choice-btn:disabled { cursor: default; }
+
+.choice-label {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  background-color: rgb(var(--color-surface-container-highest));
+  color: rgb(var(--color-on-surface-variant));
+  font-size: 12px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.choice-text { flex: 1; line-height: 1.45; }
+
+.choice-icon {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.choice-btn.correct {
+  background-color: rgb(var(--color-success-container));
+  border-color: rgb(var(--color-success));
+}
+
+.choice-btn.correct .choice-label {
+  background-color: rgb(var(--color-success));
+  color: rgb(var(--color-on-success));
+}
+
+.choice-btn.correct .choice-icon { opacity: 1; }
+
+.choice-btn.wrong {
+  background-color: rgb(var(--color-error-container));
+  border-color: rgb(var(--color-error));
+}
+
+.choice-btn.wrong .choice-label {
+  background-color: rgb(var(--color-error));
+  color: rgb(var(--color-on-error));
+}
+
+.choice-btn.wrong .choice-icon { opacity: 1; }
+
+.choice-btn.reveal-correct {
+  background-color: rgb(var(--color-success-container));
+  border-color: rgb(var(--color-success));
+  opacity: 0.7;
+}
+
+.choice-btn.reveal-correct .choice-label {
+  background-color: rgb(var(--color-success));
+  color: rgb(var(--color-on-success));
+}
+
+.choice-btn.muted { opacity: 0.45; }
+
+/* ==================== FEEDBACK BAR ==================== */
+.feedback-bar {
+  margin-top: 16px;
+  padding: 12px 16px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  pointer-events: none;
+}
+
+.feedback-bar.visible { opacity: 1; transform: translateY(0); }
+
+.feedback-bar.correct-feedback {
+  background-color: rgb(var(--color-success-container));
+  color: rgb(var(--color-on-success-container));
+}
+
+.feedback-bar.wrong-feedback {
+  background-color: rgb(var(--color-error-container));
+  color: rgb(var(--color-on-error-container));
+}
+
+/* ==================== NEXT BUTTON ==================== */
+.next-btn {
+  width: 100%;
+  margin-top: 20px;
+  padding: 14px 20px;
+  color: rgb(var(--color-on-primary));
+  border: none;
+  border-radius: 12px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  letter-spacing: 0.1px;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(6px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  /* background set via JS to match active quiz group's gradient */
+}
+
+.next-btn.visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.next-btn:hover { opacity: 0.92; }
+.next-btn:active { transform: scale(0.99); }
+
+/* ==================== RESULTS SCREEN ==================== */
+.results-card {
+  background-color: rgb(var(--color-surface));
+  border-radius: 20px;
+  padding: 36px 28px;
+  text-align: center;
+  box-shadow:
+    0 1px 3px rgba(var(--color-shadow), 0.08),
+    0 4px 16px rgba(var(--color-shadow), 0.06);
+  animation: fadeSlideDown 0.4s ease both;
+}
+
+.results-score-ring {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  /* background and box-shadow set via JS to match the active quiz group */
+}
+
+.results-score-number {
+  font-size: 32px;
+  font-weight: 600;
+  color: rgb(var(--color-on-primary));
+  line-height: 1;
+}
+
+.results-score-total {
+  font-size: 14px;
+  color: rgb(var(--color-on-primary));
+  font-weight: 400;
+}
+
+.results-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: rgb(var(--color-on-surface));
+  margin-bottom: 6px;
+  letter-spacing: -0.2px;
+}
+
+.results-message {
+  font-size: 14px;
+  font-weight: 400;
+  color: rgb(var(--color-on-surface-variant));
+  margin-bottom: 28px;
+  line-height: 1.5;
+}
+
+.results-stat-row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.results-stat {
+  flex: 1;
+  padding: 14px 12px;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.results-stat.stat-correct { background-color: rgb(var(--color-success-container)); }
+.results-stat.stat-wrong   { background-color: rgb(var(--color-error-container)); }
+
+.results-stat-value {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.1;
+}
+
+.stat-correct .results-stat-value { color: rgb(var(--color-success)); }
+.stat-wrong   .results-stat-value { color: rgb(var(--color-error)); }
+
+.results-stat-label {
+  font-size: 12px;
+  font-weight: 400;
+  margin-top: 2px;
+}
+
+.stat-correct .results-stat-label { color: rgb(var(--color-on-success-container)); }
+.stat-wrong   .results-stat-label { color: rgb(var(--color-on-error-container)); }
+
+.results-btn-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 24px;
+}
+
+.restart-btn {
+  width: 100%;
+  padding: 14px 20px;
+  color: rgb(var(--color-on-primary));
+  border: none;
+  border-radius: 12px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: opacity 0.15s ease, transform 0.1s ease;
+}
+
+.restart-btn:hover  { opacity: 0.92; }
+.restart-btn:active { transform: scale(0.99); }
+
+.back-to-categories-btn {
+  width: 100%;
+  padding: 13px 20px;
+  background-color: transparent;
+  color: rgb(var(--color-on-surface-variant));
+  border: 1.5px solid rgb(var(--color-outline-variant));
+  border-radius: 12px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.back-to-categories-btn:hover {
+  background-color: rgb(var(--color-surface-container));
+  border-color: rgb(var(--color-outline));
+}
+
+/* ==================== ANIMATIONS ==================== */
+@keyframes fadeSlideDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeSlideUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.question-transition-out { animation: slideOut 0.25s ease forwards; }
+.question-transition-in  { animation: slideIn  0.3s  ease forwards; }
+
+@keyframes slideOut {
+  to { opacity: 0; transform: translateX(-20px); }
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(20px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* ==================== HIDDEN UTILITY ==================== */
+.hidden { display: none !important; }
