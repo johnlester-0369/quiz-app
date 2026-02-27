@@ -640,15 +640,9 @@ body {
 }
 
 .question-transition-out { animation: slideOut 0.25s ease forwards; }
-.question-transition-in  { animation: slideIn  0.3s  ease forwards; }
 
 @keyframes slideOut {
   to { opacity: 0; transform: translateX(-20px); }
-}
-
-@keyframes slideIn {
-  from { opacity: 0; transform: translateX(20px); }
-  to   { opacity: 1; transform: translateX(0); }
 }
 
 /* ==================== HIDDEN UTILITY ==================== */

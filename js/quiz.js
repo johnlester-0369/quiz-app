@@ -69,8 +69,8 @@ export function startQuiz(groupIndex) {
 
 /* ==================== QUESTION RENDER ==================== */
 
-// Called on every question transition including "Try Again" — removing both
-// animation classes up front clears any stale fill-mode:forwards state that
+// Called on every question transition including "Try Again" — removing
+// question-transition-out clears the stale fill-mode:forwards state that
 // would keep the card invisible after the last-question slide-out (history #4).
 export function renderQuestion() {
   state.answered = false;
@@ -169,10 +169,6 @@ export function advanceQuestion() {
       showResults();
     } else {
       renderQuestion();
-      dom.card.classList.remove('question-transition-out');
-      dom.card.classList.add('question-transition-in');
-      // Class must be removed after the animation completes so it can replay on the next transition
-      setTimeout(() => dom.card.classList.remove('question-transition-in'), 300);
     }
   }, 220);
 }
