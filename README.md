@@ -24,7 +24,7 @@ A lightweight, zero-dependency quiz application built with vanilla JavaScript ES
 - **Instant answer feedback** — correct/wrong states, answer reveal, and a feedback bar on every question
 - **Per-category theming** — each quiz applies its own gradient to the progress bar, next button, and score ring at runtime; no per-category CSS needed
 - **Results screen** — animated score ring, correct/incorrect breakdown, and a performance message
-- **Animated transitions** — staggered card reveals on the hub, slide-in/out between questions
+- **Animated transitions** — staggered card reveals on the hub, slide-out transition between questions
 - **Accessible markup** — `aria-label` on every interactive element, `role="img"` on decorative emoji
 - **HTML injection protection** — all question and choice data is passed through `escapeHTML()` before being written to `innerHTML`
 
