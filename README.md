@@ -1,6 +1,6 @@
 # 🧠 Quiz App
 
-A lightweight, zero-dependency quiz application built with vanilla JavaScript ES Modules. Pick a topic, answer questions, and get instant feedback — no frameworks, no bundler, no build step.
+Pick a topic, answer questions, and get instant feedback — no frameworks, no bundler, no build step required.
 
 **[▶ Live Demo → johnlester-0369.github.io/quiz-app](https://johnlester-0369.github.io/quiz-app/)**
 
@@ -10,6 +10,7 @@ A lightweight, zero-dependency quiz application built with vanilla JavaScript ES
 
 - [Features](#features)
 - [Getting Started](#getting-started)
+- [Architecture](#architecture)
 - [Project Structure](#project-structure)
 - [Adding a New Quiz Category](#adding-a-new-quiz-category)
 - [Tech Stack](#tech-stack)
@@ -23,10 +24,10 @@ A lightweight, zero-dependency quiz application built with vanilla JavaScript ES
 - **4 Quiz Categories** — Python, JavaScript, HTML & CSS, Computer History
 - **Instant answer feedback** — correct/wrong states, answer reveal, and a feedback bar on every question
 - **Per-category theming** — each quiz applies its own gradient to the progress bar, next button, and score ring at runtime; no per-category CSS needed
-- **Results screen** — animated score ring, correct/incorrect breakdown, and a performance message
+- **Results screen** — score ring, correct/incorrect breakdown, and a contextual performance message
 - **Animated transitions** — staggered card reveals on the hub, slide-out transition between questions
 - **Accessible markup** — `aria-label` on every interactive element, `role="img"` on decorative emoji
-- **HTML injection protection** — all question and choice data is passed through `escapeHTML()` before being written to `innerHTML`
+- **HTML injection protection** — all question and choice data passes through `escapeHTML()` before being written to `innerHTML`
 
 ---
 
@@ -41,7 +42,7 @@ cd quiz-app
 
 ### 2. Serve locally
 
-> ⚠️ **A local HTTP server is required.** ES Module `import`/`export` is blocked on `file://` URLs by browser CORS policy — opening `index.html` directly will produce a blank screen with a CORS error in the console.
+> ⚠️ **A local HTTP server is required.** ES Module `import`/`export` is blocked on `file://` URLs by browser CORS policy — opening `index.html` directly produces a blank screen with a CORS error in the console.
 
 **Option A — npx serve (recommended, no install required)**
 ```bash
@@ -64,6 +65,46 @@ Navigate to the local address printed in your terminal. You should see the Quiz 
 
 ---
 
+## Architecture
+
+Three screens managed by class toggling, driven by a one-directional six-module graph — no framework, no build step.
+
+**Screen flow:**
+
+```
+┌──────────────────┐  start quiz ┌──────────────────┐  finish  ┌──────────────────┐
+│  Category Hub    │────────────►│   Quiz Screen    │─────────►│  Results Screen  │
+│  (pick a topic)  │◄── back ────│  (Q&A + scoring) │          │  (score + retry) │
+└──────────────────┘             └──────────────────┘          └──────────────────┘
+```
+
+**Module dependency (one-directional, no circular imports):**
+
+```
+┌──────────────────────────────┐
+│          index.html          │
+│       (HTML shell only)      │
+└──────────────┬───────────────┘
+               │ loads
+               ▼
+┌──────────────────────────────┐
+│            app.js            │
+│      (event wiring only)     │
+└────┬──────────────┬──────────┘
+     │              │
+     ▼              ▼
+┌─────────┐   ┌───────────────────────────┐
+│ dom.js  │   │          quiz.js          │
+│ state.js│   │       (quiz engine)       │
+│ data.js │   └──┬──────┬────────┬────────┘
+└─────────┘      │      │        │
+                 ▼      ▼        ▼
+             data.js  dom.js  state.js
+                            utils.js
+```
+
+---
+
 ## Project Structure
 
 ```
@@ -77,17 +118,6 @@ quiz-app/
     ├── quiz.js         # Quiz engine — rendering, answer handling, screen transitions
     ├── state.js        # Runtime state — shared by reference across all modules
     └── utils.js        # escapeHTML() — sanitises data interpolated into innerHTML
-```
-
-**Dependency graph (one-directional, no circular imports):**
-
-```
-app.js
- └── quiz.js
-      ├── data.js   (leaf — no imports)
-      ├── dom.js    (leaf — no imports)
-      ├── state.js  (leaf — no imports)
-      └── utils.js  (leaf — no imports)
 ```
 
 ---
